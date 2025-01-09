@@ -1,0 +1,115 @@
+"id","no_surah","bilangan_ayat","muka_surat","juzuk","nama_english","nama_melayu","nama_arab","maksud_english","maksud_melayu","tempat_diturunkan","created_at","updated_at","deleted_at"
+"1","1","7","1","1","Al-Fatihah","Al-Fatihah","الفاتحة","The Opener","Pembukaan","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"2","2","286","2","1","Al-Baqarah","Al-Baqarah","البقرة","The Cow","Lembu Betina","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"3","3","200","50","3","Ali-'Imran","Ali-'Imran","آل عمران","Family of Imran","Keluarga Imran","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"4","4","176","76","4","An-Nisaa'","An-Nisa'","النساء","The Women","Wanita","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"5","5","120","106","6","Al-Maa'idah","Al-Ma'idah","المائدة","The Table Spread","Hidangan","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"6","6","165","128","7","Al-An'aam","Al-An'am","الأنعام","The Cattle","Binatang Ternakan","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"7","7","206","151","8","Al-A'raaf","Al-A'raf","الأعراف","The Heights","Tempat Tertinggi","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"8","8","75","177","9","Al-Anfaal","Al-Anfal","الأنفال","The Spoils of War","Rampasan Perang","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"9","9","129","187","10","At-Taubah","At-Taubah","التوبة","The Repentance","Pengampunan","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"10","10","109","208","11","Yunus","Yunus","يونس","Jonah","Nabi Yunus a.s.","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"11","11","123","221","11","Hud","Hud","هود","Hud","Nabi Hud a.s.","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"12","12","111","235","12","Yusuf","Yusuf","يوسف","Joseph","Nabi Yusuf a.s.","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"13","13","43","249","13","Ar-Ra'd","Ar-Ra'd","الرعد","The Thunder","Guruh","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"14","14","52","255","13","Ibrahim","Ibrahim","ابراهيم","Abraham","Nabi Ibrahim a.s.","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"15","15","99","262","14","Al-Hijr","Al-Hijr","الحجر","The Rocky Tract","Kawasan Berbatu","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"16","16","128","267","14","An-Nahl","An-Nahl","النحل","The Bee","Lebah","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"17","17","111","282","15","Al-Israa'","Al-Isra'","الإسراء","The Night Journey","Perjalanan Malam","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"18","18","110","293","15","Al-Kahfi","Al-Kahf","الكهف","The Cave","Gua","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"19","19","98","305","16","Maryam","Maryam","مريم","Mary","Siti Maryam","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"20","20","135","312","16","Taha","Ta Ha","طه","Ta-Ha","Taahaa","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"21","21","112","322","17","Al-Anbiyaa'","Al-Anbiya'","الأنبياء","The Prophets","Para Nabi","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"22","22","78","332","17","Al-Hajj","Al-Hajj","الحج","The Pilgrimage","Haji","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"23","23","118","342","18","Al-Mu'minuun","Al-Mu'minun","المؤمنون","The Believers","Golongan yang Beriman","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"24","24","64","350","18","An-Nur","An-Nur","النور","The Light","Cahaya","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"25","25","77","359","18","Al-Furqaan","Al-Furqan","الفرقان","The Criterion","Pembeza Kebenaran dan Kebatilan","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"26","26","227","367","19","Asy-Syu'araa'","Ash-Shu'ara'","الشعراء","The Poets","Para Penyair","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"27","27","93","377","19","An-Naml","An-Naml","النمل","The Ant","Semut","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"28","28","88","385","20","Al-Qasas","Al-Qasas","القصص","The Stories","Cerita-cerita","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"29","29","69","396","20","Al-'Ankabuut","Al-'Ankabut","العنكبوت","The Spider","Labah-labah","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"30","30","60","404","21","Ar-Ruum","Ar-Rum","الروم","The Romans","Bangsa Rom","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"31","31","34","411","21","Luqman","Luqman","لقمان","Luqman","Luqman","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"32","32","30","415","21","As-Sajdah","As-Sajdah","السجدة","The Prostration","Sujud","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"33","33","73","418","21","Al-Ahzaab","Al-Ahzab","الأحزاب","The Combined Forces","Golongan yang Bersekutu","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"34","34","54","428","22","Saba'","Saba'","سبإ","Sheba","Kaum Saba’","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"35","35","45","434","22","Faatir","Fatir","فاطر","Originator","Pencipta","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"36","36","83","440","22","Yaa siin","Ya Sin","يس","Ya Sin","Yaasin","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"37","37","182","446","23","As-Saaffaat","As-Saffat","الصافات","Those who set the Ranks","Yang Teratur Berbaris","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"38","38","88","453","23","Saad","Sad","ص","The Letter ""Saad""","Saad","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"39","39","75","458","23","Az-Zumar","Az-Zumar","الزمر","The Troops","Rombongan","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"40","40","85","467","24","Ghaafir (Al-Mu'min)","Ghaafir (Al-Mu'min)","غافر","The Forgiver","Orang yang Beriman","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"41","41","54","477","24","Fussilat","Fussilat","فصلت","Explained in Detail","Dijelaskan","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"42","42","53","483","25","Asy-Syura","Ash-Shura","الشورى","The Consultation","Permesyuaratan","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"43","43","89","489","25","Az-Zukhruf","Az-Zukhruf","الزخرف","The Ornaments of Gold","Perhiasan Emas","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"44","44","59","496","25","Ad-Dukhaan","Ad-Dukhan","الدخان","The Smoke","Kabut / Asap","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"45","45","37","499","25","Al-Jaathiyah","Al-Jathiyah","الجاثية","The Crouching","Yang Berlutut","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"46","46","35","502","26","Al-Ahqaaf","Al-Ahqaf","الأحقاف","The Wind-Curved Sandhills","Bukit-bukit Pasir","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"47","47","38","507","26","Muhammad (S.A.W)","Muhammad","محمد","Muhammad","Nabi Muhammad SAW","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"48","48","29","511","26","Al-Fat-h","Al-Fath","الفتح","The Victory","Kemenangan","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"49","49","18","515","26","Al-Hujuraat","Al-Hujurat","الحجرات","The Rooms","Bilik-bilik","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"50","50","45","518","26","Qaaf","Qaf","ق","The Letter ""Qaf""","Qaaf","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"51","51","60","520","26","Adz-Dzaariyaat","Adh-Dhariyat","الذاريات","The Winnowing Winds","Angin yang Menerbangkan","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"52","52","49","523","27","At-Tuur","At-Tur","الطور","The Mount","Bukit","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"53","53","62","526","27","An-Najm","An-Najm","النجم","The Star","Bintang","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"54","54","55","528","27","Al-Qamar","Al-Qamar","القمر","The Moon","Bulan","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"55","55","78","531","27","Ar-Rahmaan","Ar-Rahman","الرحمن","The Beneficent","Yang Maha Pemurah","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"56","56","96","534","27","Al-Waaqi'ah","Al-Waqi'ah","الواقعة","The Inevitable","Peristiwa yang Tidak Dapat Dielakkan","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"57","57","29","537","27","Al-Hadiid","Al-Hadid","الحديد","The Iron","Besi","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"58","58","22","542","28","Al-Mujaadalah","Al-Mujadalah","المجادلة","The Pleading Woman","Perempuan yang Merayu","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"59","59","24","545","28","Al-Hasyr","Al-Hashr","الحشر","The Exile","Pengusiran","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"60","60","13","549","28","Al-Mumtahanah","Al-Mumtahanah","الممتحنة","She that is to be examined","Perempuan yang Diuji","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"61","61","14","551","28","As-Saff","As-Saff","الصف","The Ranks","Barisan","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"62","62","11","553","28","Al-Jumu'ah","Al-Jumu'ah","الجمعة","The Congregation, Friday","Hari Jumaat","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"63","63","11","554","28","Al-Munaafiquun","Al-Munafiqun","المنافقون","The Hypocrites","Golongan Munafik","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"64","64","18","556","28","At-Taghaabun","At-Taghabun","التغابن","The Mutual Disillusion","Dinampakkan Kesalahan","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"65","65","12","558","28","At-Talaaq","At-Talaq","الطلاق","The Divorce","Cerai / Talak","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"66","66","12","560","28","At-Tahriim","At-Tahrim","التحريم","The Prohibition","Mengharamkan","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"67","67","30","562","29","Al-Mulk","Al-Mulk","الملك","The Sovereignty","Kerajaan","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"68","68","52","564","29","Al-Qalam","Al-Qalam","القلم","The Pen","Pena / Kalam","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"69","69","52","566","29","Al-Haaqqah","Al-Haqqah","الحاقة","The Reality","Keadaan Sebenar / Hari Kiamat","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"70","70","44","568","29","Al-Ma'aarij","Al-Ma'arij","المعارج","The Ascending Stairways","Tempat-tempat Naik","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"71","71","28","570","29","Nuh","Nuh","نوح","Noah","Nabi Nuh a.s.","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"72","72","28","572","29","Al-Jinn","Al-Jinn","الجن","The Jinn","Jin","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"73","73","20","574","29","Al-Muzzammil","Al-Muzzammil","المزمل","The Enshrouded One","Yang Berselimut","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"74","74","56","575","29","Al-Muddaththir","Al-Muddaththir","المدثر","The Cloaked One","Yang Berselubung","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"75","75","40","577","29","Al-Qiyamah","Al-Qiyamah","القيامة","The Resurrection","Hari Kebangkitan / Kiamat","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"76","76","31","578","29","Al-Insaan","Al-Insan","الانسان","The Man","Manusia","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"77","77","50","580","29","Al-Mursalaat","Al-Mursalat","المرسلات","The Emissaries","Malaikat Yang Diutus","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"78","78","40","582","30","An-Naba'","An-Naba'","النبإ","The Tidings","Berita Besar","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"79","79","46","583","30","An-Naazi'aat","An-Nazi'at","النازعات","Those who drag forth","Malaikat Yang Mencabut","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"80","80","42","585","30","'Abasa","'Abasa","عبس","He Frowned","Dia Bermasam Muka","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"81","81","29","586","30","At-Takwiir","At-Takwir","التكوير","The Overthrowing","Menggulung","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"82","82","19","587","30","Al-Infitaar","Al-Infitar","الإنفطار","The Cleaving","Terpecah & Terbelah","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"83","83","36","587","30","Al-Mutaffifiin","Al-Mutaffifin","المطففين","The Defrauding","Golongan yang Curang","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"84","84","25","589","30","Al-Insyiqaaq","Al-Inshiqaq","الإنشقاق","The Sundering","Terbelah","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"85","85","22","590","30","Al-Buruuj","Al-Buruj","البروج","The Mansions of the Stars","Gugusan Bintang","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"86","86","17","591","30","At-Taariq","At-Tariq","الطارق","The Nightcommer","Pengunjung Malam","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"87","87","19","591","30","Al-A'laa","Al-A'la","الأعلى","The Most High","Yang Tertinggi","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"88","88","26","592","30","Al-Ghaasyiyah","Al-Ghashiyah","الغاشية","The Overwhelming","Peristiwa Menggelisahkan/Hari Pembalasan","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"89","89","30","593","30","Al-Fajr","Al-Fajr","الفجر","The Dawn","Fajar / Sinar Mentari","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"90","90","20","594","30","Al-Balad","Al-Balad","البلد","The City","Negeri","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"91","91","15","595","30","Asy-Syams","Ash-Shams","الشمس","The Sun","Matahari","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"92","92","21","595","30","Al-Lail","Al-Lail","الليل","The Night","Malam","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"93","93","11","596","30","Adh-Dhuha","Ad-Duha","الضحى","The Morning Hours","Pagi yang Cemerlang / Matahari Meninggi","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"94","94","8","596","30","Al-Insyiraah","Al-Inshirah","الشرح","The Relief","Melapangkan","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"95","95","8","597","30","At-Tiin","At-Tin","التين","The Fig","Buah Tin / Buah Ara","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"96","96","19","597","30","Al-'Alaq","Al-'Alaq","العلق","The Clot","Segumpal Darah","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"97","97","5","598","30","Al-Qadr","Al-Qadr","القدر","The Power","Kemuliaan","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"98","98","8","598","30","Al-Bayyinah","Al-Bayyinah","البينة","The Clear Proof","Bukti yang Nyata","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"99","99","8","599","30","Az-Zalzalah","Al-Zalzalah","الزلزلة","The Earthquake","Kegoncangan","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"100","100","11","599","30","Al-'Aadiyaat","Al-'Adiyat","العاديات","The Courser","Yang Berlari Kencang","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"101","101","11","600","30","Al-Qaari'ah","Al-Qari'ah","القارعة","The Calamity","Hari Yang Hingar Bingar / Kiamat","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"102","102","8","600","30","At-Takaathur","At-Takathur","التكاثر","The Rivalry in world increase","Bermegah-megah","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"103","103","3","601","30","Al-'Asr","Al-'Asr","العصر","The Declining Day","Masa","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"104","104","9","601","30","Al-Humazah","Al-Humazah","الهمزة","The Traducer","Pengumpat","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"105","105","5","601","30","Al-Fiil","Al-Fil","الفيل","The Elephant","Gajah","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"106","106","4","602","30","Quraisy","Quraysh","قريش","Quraysh","Kaum Quraisy","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"107","107","7","602","30","Al-Maa'uun","Al-Ma'un","الماعون","The Small kindnesses","Barangan Berguna","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"108","108","3","602","30","Al-Kauthar","Al-Kauthar","الكوثر","The Abundance","Sungai Di Syurga","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"109","109","6","603","30","Al-Kaafiruun","Al-Kafirun","الكافرون","The Disbelievers","Golongan Kafir","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"110","110","3","603","30","An-Nasr","An-Nasr","النصر","The Divine Support","Pertolongan","D","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"111","111","5","603","30","Al-Masad","Al-Masad","المسد","The Palm Fiber","Nyalaan Api","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"112","112","4","604","30","Al-Ikhlaas","Al-Ikhlas","الإخلاص","The Sincerity","Tulus Ikhlas / Memurnikan Keesaan Allah","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"113","113","5","604","30","Al-Falaq","Al-Falaq","الفلق","The Daybreak","Waktu Subuh / Dinihari","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL
+"114","114","6","604","30","An-Naas","An-Nas","الناس","Mankind","Manusia","M","2024-06-27 03:26:58","2024-06-27 03:27:12",NULL

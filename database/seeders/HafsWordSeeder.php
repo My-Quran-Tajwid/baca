@@ -19,22 +19,39 @@ class HafsWordSeeder extends Seeder
         $csv = Reader::createFromPath(resource_path('csv/_Hafs_Word__202501082128.csv'), 'r');
         $csv->setHeaderOffset(0);
 
+        // Total rows: 84109 rows
         $records = $csv->getRecords();
-        $this->command->info('Number of rows to seed: ' . iterator_count($records));
 
-        foreach ($records as $record) {
-            DB::table('hafs_words')->insert([
-                'Surah' => $record['Sura'],
-                'Ayat' => $record['Verse'],
-                'PageNo' => $record['PageNo'],
-                'LineNo' => $record['LineNo'],
-                'WordOrder' => $record['WordNum'],
-                'WordText' => $record['WordText'],
-                'FontFamily' => $record['FontName'],
-                'FontCode' => $record['FontCode'],
-                'Type' => $record['Type'],
-                'FontUniCode' => $record['FontUniCode'],
-            ]);
-        }
+        // To speed up the seeding process, we will insert the records in batches
+        // From 5 minutes, down to 2.4 secs!
+        $batchSize = 500; // Define the batch size
+        $batch = [];
+
+        DB::transaction(function () use ($records, $batchSize, &$batch, &$batchCount) {
+            foreach ($records as $record) {
+                $batch[] = [
+                    'Surah' => $record['Sura'],
+                    'Ayat' => $record['Verse'],
+                    'PageNo' => $record['PageNo'],
+                    'LineNo' => $record['LineNo'],
+                    'WordOrder' => $record['WordNum'],
+                    'WordText' => $record['WordText'],
+                    'FontFamily' => $record['FontName'],
+                    'FontCode' => $record['FontCode'],
+                    'Type' => $record['Type'],
+                    'FontUniCode' => $record['FontUniCode'],
+                ];
+
+                if (count($batch) === $batchSize) {
+                    DB::table('hafs_words')->insert($batch);
+                    $batch = []; // Clear the batch
+                }
+            }
+
+            // Insert any remaining rows
+            if (!empty($batch)) {
+                DB::table('hafs_words')->insert($batch);
+            }
+        });
     }
 }
