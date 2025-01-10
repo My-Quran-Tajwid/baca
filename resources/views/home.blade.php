@@ -35,7 +35,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach ($surahs as $surah)
             <a href="/surah/{{ $surah->no_surah }}" 
-            class="group relative flex items-start p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-rose-500 transition-colors duration-200">
+            class="group relative flex items-start p-6 bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-rose-500 transition-colors duration-200">
                 <div class="flex-1">
                     <div class="flex items-center gap-4">
                         <!-- Surah Number -->

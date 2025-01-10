@@ -19,7 +19,7 @@
         @yield('styles')
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen bg-gray-100 dark:bg-zinc-800">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
