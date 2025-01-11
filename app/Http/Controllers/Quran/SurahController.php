@@ -61,7 +61,7 @@ class SurahController extends Controller
         // TODO: Implement pageContent
         $pageContent = 'MOCKDATA';
 
-        return view('surah.show', compact('surah', 'ayats', 'pageContent', 'fonts'));
+        return view('quran.surah.show', compact('surah', 'ayats', 'pageContent', 'fonts'));
     }
 
     /**
