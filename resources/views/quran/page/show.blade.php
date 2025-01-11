@@ -38,7 +38,7 @@ style tag messed up the syntax highlighting. --}}
                                 @foreach ($words as $word)
                                     <span class="{{ $word->FontFamily }}" >
                                         &#{{ $word->FontCode }};
-                                    <span>
+                                    </span>
                                 @endforeach
                             </p>
                         </td>
