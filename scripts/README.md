@@ -12,5 +12,8 @@ Example:
 
 ```shell
 cd htdocs/baca.qurantajwid.my/
-./deploy.sh
+chmod +x ./scripts/deploy.sh # Run once to set script permission
+./scripts/deploy.sh
 ```
+
+![image](https://github.com/user-attachments/assets/31955526-6db9-4d16-8dac-843cfd2bc637)
