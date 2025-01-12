@@ -34,11 +34,11 @@ style tag messed up the syntax highlighting. --}}
                     </span>
                 @endif
             </div>
-            <p class="text-right leading-[2] lg:leading-[3] text-black dark:text-white text-3xl lg:text-4xl hover:bg-yellow-100/30 dark:hover:bg-yellow-300/5 hover:text-white" dir="rtl" >
+            <p class="ayat-quran cursor-default text-right leading-[2] lg:leading-[3] text-black dark:text-white text-3xl lg:text-4xl hover:bg-yellow-100/30 dark:hover:bg-yellow-300/5" dir="rtl" >
                 @foreach ($ayat as $word)
                     {{-- RTL Override --}}
                     ‮
-                    <span class="{{ $word->FontFamily }}_COLOR">
+                    <span class="{{ $word->FontFamily }}">
                         &#{{ $word->FontCode }};
                     </span>
                     @endforeach
@@ -65,6 +65,35 @@ style tag messed up the syntax highlighting. --}}
         </div>
     </div>
 </main>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('fontToggle', () => ({
+            isTajwidEnabled: localStorage.getItem('tajwidFont') === 'true',
+            toggleTajwid() {
+                this.isTajwidEnabled = !this.isTajwidEnabled;
+                localStorage.setItem('tajwidFont', this.isTajwidEnabled);
+                this.updateFont();
+            },
+            updateFont() {
+                const elements = document.querySelectorAll('.ayat-quran span');
+                
+                elements.forEach(el => {
+                    const fontFamily = el.classList[0];
+                    const tajwidClass = `${fontFamily}_COLOR`;
+                    
+                    if (this.isTajwidEnabled) {
+                        el.classList.add(tajwidClass);
+                    } else {
+                        el.classList.remove(tajwidClass);
+                    }
+                });
+            },
+            init() {
+                this.updateFont();
+            }
+        }));
+    });
+</script>
 @endsection
 
 @section('styles')

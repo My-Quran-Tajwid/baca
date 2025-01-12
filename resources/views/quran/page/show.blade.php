@@ -52,14 +52,6 @@ style tag messed up the syntax highlighting. --}}
         </tr>
     </table>
 
-    <!-- Toggle Tajwid Font -->
-    <div x-data="fontToggle" class="flex justify-center mb-8">
-        <label class="inline-flex items-center">
-            <input type="checkbox" @click="toggleTajwid" :checked="isTajwidEnabled" class="form-checkbox h-5 w-5 text-emerald-600">
-            <span class="ml-2 text-gray-700">Enable Tajwid Font</span>
-        </label>
-    </div>
-    
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('fontToggle', () => ({

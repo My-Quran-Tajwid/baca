@@ -14,6 +14,11 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+        <style>
+            /* https://alpinejs.dev/directives/cloak */
+            [x-cloak] { display: none !important; }
+        </style>
+
 
         <!-- Styles -->
         @yield('styles')

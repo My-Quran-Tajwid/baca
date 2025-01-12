@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Quran;
 use App\Http\Controllers\Controller;
 use App\Models\HafsWord;
 use App\Models\Surah;
-use Illuminate\Http\Request;
 
 class SurahController extends Controller
 {
@@ -16,22 +15,6 @@ class SurahController extends Controller
     {
         $surahs = Surah::all();
         return view('home', compact('surahs'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -62,29 +45,5 @@ class SurahController extends Controller
         $pageContent = 'MOCKDATA';
 
         return view('quran.surah.show', compact('surah', 'ayats', 'pageContent', 'fonts'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
