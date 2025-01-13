@@ -62,9 +62,9 @@
                         </div>
                     </div>
                     
-                    <!-- Verses Count -->
+                    <!-- Verses Count & Revelation -->
                     <div class="mt-4 text-sm text-gray-500">
-                        {{ $surah->bilangan_ayat }} ayat
+                        {{ $surah->bilangan_ayat }} ayat &middot; {{['M' => 'Makiyyah', 'D' => 'Madaniah'][$surah->tempat_diturunkan]}}
                     </div>
                 </div>
             </a>
