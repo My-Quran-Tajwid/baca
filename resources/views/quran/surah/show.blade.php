@@ -1,8 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => 'Surah ' . $surah->nama_melayu])
 
 {{-- Style section is moved to the below of this document beacause @foreach inside
 style tag messed up the syntax highlighting. --}}
-
 
 @section('content')
     <main class="container bg-white dark:bg-zinc-800 drop-shadow-md mx-auto px-8 py-8">
@@ -10,7 +9,7 @@ style tag messed up the syntax highlighting. --}}
         <div class="text-center mb-8">
             <h1 class="text-5xl nama-surah-arab text-gray-900 dark:text-gray-100">S{{ $surah->no_surah }}</h1>
             <p class="text-xl font-arabic text-gray-800 dark:text-gray-200 mt-6" dir="rtl">{{ $surah->nama_melayu }}</p>
-            <p class="text-gray-600 mt-2">{{ $surah->translated_name }}</p>
+            <p class="text-gray-600 mt-2">{{ $surah->maksud_melayu }}</p>
         </div>
 
         <div class="space-y-8">
@@ -90,7 +89,8 @@ style tag messed up the syntax highlighting. --}}
                 ],
                 fontSizeIndex: localStorage.getItem('fontSizeIndex') ?
                     parseInt(localStorage.getItem('fontSizeIndex')) :
-                    2, // Default to the third size (text-4xl)
+                    // Default to smaller font size when in small screen size
+                    window.innerWidth < 1024 ? 1 : 2,
 
                 get fontSize() {
                     return this.fontSizes[this.fontSizeIndex];
