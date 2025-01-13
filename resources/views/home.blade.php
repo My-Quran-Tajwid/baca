@@ -39,9 +39,9 @@
                 <div class="flex-1">
                     <div class="flex items-center gap-4">
                         <!-- Surah Number -->
-                        <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-rose-50 dark:bg-rose-900 text-rose-600 dark:text-white font-semibold">
+                        <x-surah-ornament class="flex items-center justify-center w-10 h-10 fill-rose-50 dark:fill-rose-900 text-rose-600 dark:text-white font-semibold">
                             {{ $surah->no_surah }}
-                        </div>
+                        </x-surah-ornament>
                         
                         <div class="flex-1">
                             <div class="flex items-center justify-between">
