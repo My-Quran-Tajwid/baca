@@ -120,14 +120,24 @@
                             <!-- Font Size Section -->
                             {{-- TODO: Complete implementation --}}
                             @if (request()->is('surah/*'))
-                                <div>
+                                <div x-data="fontSize" class="p-4">
                                     <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Font size</h3>
                                     <div class="mt-2 flex items-center space-x-4">
-                                        <button class="p-2 rounded-full bg-zinc-200 dark:bg-zinc-700 text-gray-700 dark:text-gray-300">
+                                        <button 
+                                            @click="decreaseFontSize" 
+                                            class="p-2 rounded-full bg-zinc-200 dark:bg-zinc-700 focus:outline-none"
+                                            :class="fontSizeIndex === 0 ? 'text-gray-300 dark:text-gray-600': 'text-gray-700 dark:text-gray-300'"
+                                            :disabled="fontSizeIndex === 0">
                                             <x-heroicon-o-minus class="w-6 h-6" />
                                         </button>
-                                        <span class="text-xl font-medium text-gray-900 dark:text-gray-100">6</span>
-                                        <button class="p-2 rounded-full bg-zinc-200 dark:bg-zinc-700 text-gray-700 dark:text-gray-300">
+                                        <span class="text-xl font-medium text-gray-900 dark:text-gray-100">
+                                            <span x-text="fontSizeLabel"></span>
+                                        </span>
+                                        <button 
+                                            @click="increaseFontSize" 
+                                            class="p-2 rounded-full bg-zinc-200 dark:bg-zinc-700 focus:outline-none"
+                                            :class="fontSizeIndex === fontSizes.length - 1 ? 'text-gray-300 dark:text-gray-600': 'text-gray-700 dark:text-gray-300'"
+                                            :disabled="fontSizeIndex === fontSizes.length - 1">
                                             <x-heroicon-o-plus class="w-6 h-6" />
                                         </button>
                                     </div>
