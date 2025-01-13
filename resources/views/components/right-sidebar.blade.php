@@ -43,13 +43,11 @@
                                 {{ $title }}
                             </h2>
                             <div class="ml-3 flex h-7 items-center">
-                                <button
-                                    type="button"
+                                <button type="button"
                                     class="rounded-md bg-white dark:bg-gray-800 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                                    @click="open = false"
-                                >
+                                    @click="open = false">
                                     <span class="sr-only">Close panel</span>
-                                    <x-iconsax-bol-close-square class="h-6 w-6" />
+                                    <x-heroicon-o-x-mark class="h-6 w-6" />
                                 </button>
                             </div>
                         </div>
@@ -62,7 +60,7 @@
                             {{-- <div>
                                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Theme</h3>
                                 <div class="mt-2 flex space-x-2">
-                                    @foreach(['Auto', 'Light', 'Sepia', 'Dark'] as $theme)
+                                    @foreach (['Auto', 'Light', 'Sepia', 'Dark'] as $theme)
                                         <button class="px-3 py-2 bg-gray-200 dark:bg-gray-700 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300">
                                             {{ $theme }}
                                         </button>
@@ -77,7 +75,7 @@
                             {{-- <div>
                                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Quran Font</h3>
                                 <div class="mt-2 flex space-x-2">
-                                    @foreach(['Uthmani', 'IndoPak', 'Tajweed'] as $font)
+                                    @foreach (['Uthmani', 'IndoPak', 'Tajweed'] as $font)
                                         <button class="px-3 py-2 bg-gray-200 dark:bg-gray-700 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300">
                                             {{ $font }}
                                         </button>
@@ -92,9 +90,13 @@
                                 <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Tajwid</h3>
                                 <div class="mt-2 flex items-center">
                                     <span class="text-sm text-gray-700 dark:text-gray-300">Off</span>
-                                    <label for="tajwid-toggle" class="ml-3 relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" @change="toggleTajwid" id="tajwid-toggle" :checked="isTajwidEnabled" class="sr-only peer"  >
-                                        <div class="w-11 h-6 bg-zinc-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-indigo-500 dark:bg-zinc-700 rounded-full peer dark:peer-focus:ring-indigo-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-600"></div>
+                                    <label for="tajwid-toggle"
+                                        class="ml-3 relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" @change="toggleTajwid" id="tajwid-toggle"
+                                            :checked="isTajwidEnabled" class="sr-only peer">
+                                        <div
+                                            class="w-11 h-6 bg-zinc-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-indigo-500 dark:bg-zinc-700 rounded-full peer dark:peer-focus:ring-indigo-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-600">
+                                        </div>
                                     </label>
                                     <span class="ml-3 text-sm text-gray-700 dark:text-gray-300">On</span>
                                 </div>
@@ -102,8 +104,10 @@
                                     Preview
                                 </p>
 
-                                <div :class="isTajwidEnabled ? 'QCF4_Hafs_01_W_COLOR' : 'QCF4_Hafs_01_W'" class="text-right p-2 bg-zinc-50/90 dark:bg-zinc-800/80 rounded leading-[2] text-black dark:text-white text-3xl" dir="rtl">
-                                    ‮                  
+                                <div :class="isTajwidEnabled ? 'QCF4_Hafs_01_W_COLOR' : 'QCF4_Hafs_01_W'"
+                                    class="text-right p-2 bg-zinc-50/90 dark:bg-zinc-800/80 rounded leading-[2] text-black dark:text-white text-3xl"
+                                    dir="rtl">
+                                    ‮                 
                                 </div>
                             </div>
 
@@ -123,20 +127,20 @@
                                 <div x-data="fontSize" class="p-4">
                                     <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Font size</h3>
                                     <div class="mt-2 flex items-center space-x-4">
-                                        <button 
-                                            @click="decreaseFontSize" 
+                                        <button @click="decreaseFontSize"
                                             class="p-2 rounded-full bg-zinc-200 dark:bg-zinc-700 focus:outline-none"
-                                            :class="fontSizeIndex === 0 ? 'text-gray-300 dark:text-gray-600': 'text-gray-700 dark:text-gray-300'"
+                                            :class="fontSizeIndex === 0 ? 'text-gray-300 dark:text-gray-600' :
+                                                'text-gray-700 dark:text-gray-300'"
                                             :disabled="fontSizeIndex === 0">
                                             <x-heroicon-o-minus class="w-6 h-6" />
                                         </button>
                                         <span class="text-xl font-medium text-gray-900 dark:text-gray-100">
                                             <span x-text="fontSizeLabel"></span>
                                         </span>
-                                        <button 
-                                            @click="increaseFontSize" 
+                                        <button @click="increaseFontSize"
                                             class="p-2 rounded-full bg-zinc-200 dark:bg-zinc-700 focus:outline-none"
-                                            :class="fontSizeIndex === fontSizes.length - 1 ? 'text-gray-300 dark:text-gray-600': 'text-gray-700 dark:text-gray-300'"
+                                            :class="fontSizeIndex === fontSizes.length - 1 ?
+                                                'text-gray-300 dark:text-gray-600' : 'text-gray-700 dark:text-gray-300'"
                                             :disabled="fontSizeIndex === fontSizes.length - 1">
                                             <x-heroicon-o-plus class="w-6 h-6" />
                                         </button>
@@ -150,4 +154,3 @@
         </div>
     </div>
 </div>
-
