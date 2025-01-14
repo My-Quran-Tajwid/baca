@@ -21,6 +21,9 @@ class PageController extends Controller
      */
     public function show(string $page)
     {
+        if ($page < 1 || $page > 604) {
+            abort(404, 'Page out of range');
+        }
         $words = HafsWord::where('PageNo', $page)
             ->orderBy('Surah')
             ->orderBy('Ayat')

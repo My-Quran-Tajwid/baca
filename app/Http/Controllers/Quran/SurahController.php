@@ -22,6 +22,9 @@ class SurahController extends Controller
      */
     public function show(string $id)
     {
+        if ($id < 1 || $id > 114) {
+            abort(404, 'Surah is out of range');
+        }
         $surah = Surah::find($id);
         $words = HafsWord::where('Surah', $id)
             ->where('FontFamily', '!=', 'QCF4_QBSML')
