@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Primary Meta Tags -->
-    <title>"{{ isset($title) ? $title . ' ・ QuranTajwid' : 'Baca ・ QuranTajwid' }}"</title>
+    <title>{{ isset($title) ? $title . ' ・ QuranTajwid' : 'Baca ・ QuranTajwid' }}</title>
     <meta name="title" content="{{ isset($title) ? $title . ' ・ QuranTajwid' : 'Baca ・ QuranTajwid' }}" />
     @isset($ogDescription)
         <meta name="description" content="{{ $ogDescription }}" />
