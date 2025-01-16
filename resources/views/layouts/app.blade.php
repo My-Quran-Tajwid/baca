@@ -63,6 +63,8 @@
 
         <!-- Page Content -->
         @yield('content')
+        
+        <x-footer />
     </div>
 </body>
 
