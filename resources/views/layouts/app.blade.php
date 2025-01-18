@@ -7,15 +7,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Primary Meta Tags -->
-    <title>{{ isset($title) ? $title . ' ・ QuranTajwid' : 'Baca ・ QuranTajwid' }}</title>
-    <meta name="title" content="{{ isset($title) ? $title . ' ・ QuranTajwid' : 'Baca ・ QuranTajwid' }}" />
+    <title>{{ isset($title) ? $title . '・QuranTajwid' : 'Baca・QuranTajwid' }}</title>
+    <meta name="title" content="{{ isset($title) ? $title . '・QuranTajwid' : 'Baca・QuranTajwid' }}" />
     @isset($ogDescription)
         <meta name="description" content="{{ $ogDescription }}" />
     @endisset
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ url()->current() }}" />
-    <meta property="og:title" content="{{ isset($title) ? $title . ' ・ QuranTajwid' : 'Baca ・ QuranTajwid' }}" />
+    <meta property="og:title" content="{{ isset($title) ? $title . '・QuranTajwid' : 'Baca・QuranTajwid' }}" />
     @isset($ogDescription)
         <meta property="og:description" content="{{ $ogDescription }}" />
     @endisset
@@ -24,7 +24,7 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="{{ url()->current() }}" />
-    <meta property="twitter:title" content="{{ isset($title) ? $title . ' ・ QuranTajwid' : 'Baca ・ QuranTajwid' }}" />
+    <meta property="twitter:title" content="{{ isset($title) ? $title . '・QuranTajwid' : 'Baca・QuranTajwid' }}" />
     @isset($ogDescription)
         <meta property="twitter:description" content="{{ $ogDescription }}" />
     @endisset
