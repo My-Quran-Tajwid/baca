@@ -46,6 +46,8 @@
 
     <!-- Styles -->
     @yield('styles')
+
+    <script defer src="https://umami.iqfareez.com/script.js" data-website-id="582466c3-2a09-411c-aba1-511bce82fff2"></script>
 </head>
 
 <body class="font-sans antialiased">
