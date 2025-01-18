@@ -14,16 +14,24 @@ style tag messed up the syntax highlighting. --}}
 
         <div class="space-y-8">
             @foreach ($ayats as $ayat)
-                <div>
-                    <div class="flex justify-between items-start mb-4">
+                <section id="{{ $ayat[0]->Ayat }}" class="group">
+                    <div class="flex items-start mb-4">
                         @if ($ayat[0]->Ayat != 0)
                             <span
                                 class="bg-rose-100 text-rose-800 dark:bg-rose-800/50 dark:text-rose-200 text-sm font-semibold px-2.5 py-0.5 rounded">
                                 {{ $surah->no_surah }}:{{ $ayat[0]->Ayat }}
                             </span>
+                            <button 
+                                class="tooltip btn-copy-link text-rose-800 dark:text-rose-200 mx-1 px-2 py-0.5 rounded-md opacity-0 group-hover:opacity-100 hover:bg-rose-200/20 dark:hover:bg-rose-700/20 active:bg-rose-200/50 dark:active:bg-rose-700/40 transition-opacity duration-300 ease-in-out"
+                                data-ayat-number="{{ $ayat[0]->Ayat }}"
+                                type="button"
+                                data-tip="Copy link to ayat">
+                                <x-heroicon-o-link class="h-5 w-5" />
+                            </button> 
                         @endif
                     </div>
-                    <p class="ayat-quran cursor-default text-right tracking-wider leading-[2] lg:leading-[3] text-black dark:text-white text-2xl hover:bg-yellow-100/30 dark:hover:bg-yellow-300/5"
+
+                    <p class="ayat-quran cursor-default text-right tracking-wider leading-[2] lg:leading-[3] text-black dark:text-white text-2xl"
                         dir="rtl">
                         {{-- RTL Override --}}
                         ‮
@@ -33,11 +41,10 @@ style tag messed up the syntax highlighting. --}}
                             </span>
                         @endforeach
                     </p>
-                </div>
+                </section>
             @endforeach
         </div>
 
-        <!-- Page View -->
         {{-- TODO: Maybe make popever as hint of what next surah is --}}
         <div class="p-6">
             <div class="flex justify-center mt-6">
@@ -130,6 +137,22 @@ style tag messed up the syntax highlighting. --}}
                     this.updateFontSize(); // Initialize the font size on page load
                 }
             }));
+
+            // Assign all the copy button the copy functionality
+            document.querySelectorAll('.btn-copy-link').forEach(button => {
+                button.addEventListener('click', () => {
+                    const ayatNumber = button.getAttribute('data-ayat-number');
+                    const url = `${window.location.origin}${window.location.pathname}#${ayatNumber}`;
+                    navigator.clipboard.writeText(url);
+
+                    // Update tooltip message
+                    const originalText = button.getAttribute('data-tip');
+                    button.setAttribute('data-tip', 'Copied!');
+                    setTimeout(() => {
+                        button.setAttribute('data-tip', originalText);
+                    }, 2000);
+                });
+            });
         });
     </script>
 @endsection
