@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Surah ' . $surah->nama_melayu])
+@extends('layouts.app', ['title' => 'Surah ' . $surah->nama_melayu, 'ogImage' => 'https://baca-opengraph.vercel.app/api/og/surah?surah=' . $surah->no_surah])
 
 {{-- Style section is moved to the below of this document beacause @foreach inside
 style tag messed up the syntax highlighting. --}}

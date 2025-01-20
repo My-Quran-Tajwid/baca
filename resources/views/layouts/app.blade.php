@@ -19,16 +19,20 @@
     @isset($ogDescription)
         <meta property="og:description" content="{{ $ogDescription }}" />
     @endisset
-    <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+    @isset($ogImage)
+    <meta property="og:image" content="{{ $ogImage }}" />
+    @endisset
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="{{ url()->current() }}" />
     <meta property="twitter:title" content="{{ isset($title) ? $title . '・QuranTajwid' : 'Baca・QuranTajwid' }}" />
     @isset($ogDescription)
-        <meta property="twitter:description" content="{{ $ogDescription }}" />
+    <meta property="twitter:description" content="{{ $ogDescription }}" />
     @endisset
-    <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+    @isset($ogImage)
+    <meta property="twitter:image" content="{{ $ogImage }}" />    
+    @endisset
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
