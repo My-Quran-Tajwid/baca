@@ -109,6 +109,11 @@
                                     dir="rtl">
                                     ‮                 
                                 </div>
+                                <template x-if="isTajwidEnabled">
+                                    <p class="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                                        Tajwid font is currently in development, some surah will not have the tajwid variant yet.
+                                    </p>
+                                </template>
                             </div>
 
                             <!-- Style Section -->
