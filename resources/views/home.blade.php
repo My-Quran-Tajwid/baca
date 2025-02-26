@@ -4,7 +4,8 @@
     <style>
         @font-face {
             font-family: 'qcf4_surah_juzuk';
-            src: url('{{ asset('fonts/QCF4_Surah_Juzuk_Mudah-Regular.woff2') }} ') format('woff2');
+            src: url('{{ asset('quran-fonts/fonts/King Fahd Complex/Custom/woff2/QCF4_Surah_Juzuk_Mudah-Regular.woff2') }} ') format('woff2'),
+                url('{{ asset('quran-fonts/fonts/King Fahd Complex/Custom/QCF4_Surah_Juzuk_Mudah-Regular.ttf') }} ') format('truetype');
         }
 
         .nama-surah-arab {

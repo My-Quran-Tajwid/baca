@@ -1,0 +1,4 @@
+[submodule "public/quran-fonts"]
+	path = public/quran-fonts
+	url = https://github.com/My-Quran-Tajwid/quran-fonts.git
+	branch = dev/color-fonts

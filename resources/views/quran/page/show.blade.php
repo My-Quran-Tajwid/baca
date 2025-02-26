@@ -87,7 +87,8 @@ style tag messed up the syntax highlighting. --}}
     <style>
         @font-face {
             font-family: 'qcf4_surah_juzuk';
-            src: url('{{ asset('fonts/QCF4_Surah_Juzuk_Mudah-Regular.woff2') }} ') format('woff2');
+            src: url('{{ asset('quran-fonts/fonts/King Fahd Complex/Custom/woff2/QCF4_Surah_Juzuk_Mudah-Regular.woff2') }} ') format('woff2'),
+                url('{{ asset('quran-fonts/fonts/King Fahd Complex/Custom/QCF4_Surah_Juzuk_Mudah-Regular.ttf') }} ') format('truetype');
         }
 
         .nama-surah-arab {
@@ -230,12 +231,12 @@ style tag messed up the syntax highlighting. --}}
         @foreach ($fonts as $font)
             @font-face {
                 font-family: '{{ $font }}';
-                src: url('{{ asset('fonts/QCF4_Quran/Original/' . $font . '.woff2') }}') format('woff2');
+                src: url('{{ asset('quran-fonts/fonts/King Fahd Complex/Original/Hafs-QCF4/' . $font . '.woff2') }}') format('woff2');
             }
 
             @font-face {
                 font-family: '{{ $font }}_COLOR';
-                src: url('{{ asset('fonts/QCF4_Quran/Tajwid/' . $font . '_COLOR-Regular.woff2') }}') format('woff2');
+                src: url('{{ asset('quran-fonts/fonts/King Fahd Complex/Hafs-QCF4-Colors/woff2/' . $font . '_COLOR-Regular.woff2') }}') format('woff2');
             }
 
             .{{ $font }} {
