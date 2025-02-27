@@ -1,26 +1,22 @@
 // https://aka.ms/devcontainer.json
 {
-	"name": "Existing Docker Compose (Extend)",
-	"initializeCommand": "docker run --rm -u \"$(id -u):$(id -g)\" -v \"$(pwd):/var/www/html\" -w /var/www/html laravelsail/php84-composer:latest composer install --ignore-platform-reqs",
-	"dockerComposeFile": [
-		"../docker-compose.yml"
-	],
-	"service": "laravel.test",
+	"name": "Laravel Dev Container",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "workspace",
 	"workspaceFolder": "/var/www/html",
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				// "mikestead.dotenv",
-				// "amiralizadeh9480.laravel-extra-intellisense",
-				// "ryannaddy.laravel-artisan",
-				// "onecentlin.laravel5-snippets",
-				// "onecentlin.laravel-blade"
+				"ms-php.php-pack",
+				"ms-vscode.vscode-typescript-tslint-plugin",
+				"eamodio.gitlens",
+				"dbaeumer.vscode-eslint"
 			],
 			"settings": {}
 		}
 	},
-	"remoteUser": "sail",
-	"postCreateCommand": "chown -R 1000:1000 /var/www/html 2>/dev/null || true"
+	"postCreateCommand": "composer install && npm install",
+	"remoteUser": "vscode"
 	// "forwardPorts": [],
 	// "runServices": [],
 	// "shutdownAction": "none",

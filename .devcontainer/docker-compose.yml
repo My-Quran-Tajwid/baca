@@ -1,0 +1,34 @@
+docker-compose.yml:
+
+version: '3.8'
+
+services:
+  workspace:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - mysql
+    environment:
+      - COMPOSER_MEMORY_LIMIT=-1
+    networks:
+      - laravel
+
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3306:3306"
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
