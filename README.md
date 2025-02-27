@@ -9,20 +9,15 @@ Clone repo, create .env file, and setup project
 ```shell
 git clone https://github.com/My-Quran-Tajwid/baca.git
 cd baca
-cp .env.example .env
 composer install
 npm install
+```
+
+Copy environment file & generate app key
+
+```
+cp .env.example .env
 php artisan key:generate
-```
-
-Fill in the Database connection information in the `.env` file. Easiest way to get started is using sqlite. Example:
-
-```env
-DB_CONNECTION=sqlite
-```
-
-> [!TIP]
-> Need help to setup MySQL database? Check out my article on how to setup MySQL server on a docker: https://iqfareez.com/blog/setup-docker-mysql-phpmyadmin
 ```
 
 Fill in the Database connection information in the `.env` file. Easiest way to get started is using sqlite. Example:
@@ -65,5 +60,5 @@ php artisan db:seed DatabaseSeeder && \
 npm run build
 ```
 ```shell
-git submodule ini && git submodule update
+git submodule init && git submodule update
 ```
