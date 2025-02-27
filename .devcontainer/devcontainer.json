@@ -1,7 +1,9 @@
 // https://aka.ms/devcontainer.json
 {
 	"name": "Laravel Dev Container",
-	"dockerComposeFile": "docker-compose.yml",
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
 	"service": "workspace",
 	"workspaceFolder": "/var/www/html",
 	"customizations": {
