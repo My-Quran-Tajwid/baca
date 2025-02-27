@@ -1,21 +1,28 @@
 # Baca - Online Quran Reader
 
+![baca-image-cover](https://baca-opengraph.vercel.app/api/default?alt=1)
+
 ## Getting Started
 
 Clone repo
 
 ```shell
-git clone https://github.com/My-Quran-Tajwid/baca.git
-cd baca
+git clone https://github.com/My-Quran-Tajwid/baca.git --recursive
 ```
 
-Create .env file
+If you git cloned without the `--recursive` flag, run this command to get the submodules:
+
+```shell
+git submodule update --init
+```
+
+Open the cloned folder and create an `.env` file
 
 ```shell
 cp .env.example .env
 ```
 
-Setup project
+Setup project:
 
 ```shell
 composer install
@@ -27,6 +34,7 @@ Fill in the Database connection information in the `.env` file. Easiest way to g
 
 ```env
 DB_CONNECTION=sqlite
+DB_DATABASE=D:\Development\baca\database\app.sqlite
 ```
 
 > [!TIP]
