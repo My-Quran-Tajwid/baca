@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['ogImage' => 'https://baca-opengraph.vercel.app/api/default?alt=1'])
 
 @section('styles')
     <style>
