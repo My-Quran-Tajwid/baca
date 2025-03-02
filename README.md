@@ -16,6 +16,13 @@ If you git cloned without the `--recursive` flag, run this command to get the su
 git submodule update --init
 ```
 
+> [!TIP]
+> To update the submodules next time, run this command:
+> ```shell
+> git submodule update --remote
+> ```
+
+
 Open the cloned folder and create an `.env` file
 
 ```shell
