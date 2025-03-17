@@ -4,7 +4,10 @@
 # first deploy, consult this project's README.md.
 set -e
 
-git pull || { echo 'git pull failed' ; exit 1; }
+echo "Deploy triggered by user: $(whoami) on $(date)"
+
+git pull --recurse-submodules || { echo 'git pull failed' ; exit 1; }
+git submodule update --init --recursive || { echo 'git submodule update failed' ; exit 1; }
 composer install || { echo 'composer install failed' ; exit 1; }
 
 npm install || { echo 'npm install failed' ; exit 1; }
@@ -21,3 +24,5 @@ php artisan icons:cache || { echo 'php artisan icons:cache failed' ; exit 1; }
 # Uncomment if you wish to run migrate together in this script, I
 # usually run it seperately
 # php artisan migrate
+
+echo 'Deployment successful.'
