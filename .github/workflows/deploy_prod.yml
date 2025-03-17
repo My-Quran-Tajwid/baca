@@ -22,6 +22,7 @@ jobs:
         username: ${{ vars.HOST_USER }}
         password: ${{ secrets.HOST_USER_PASSWORD }}
         script: |
+          #!/usr/bin/env bash
+          set -e
           cd htdocs/baca.qurantajwid.my
           bash scripts/deploy.sh
-          echo "Deployment completed."
