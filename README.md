@@ -1,5 +1,7 @@
 # Baca - Online Quran Reader
 
+[![Deploy](https://github.com/My-Quran-Tajwid/baca/actions/workflows/deploy_prod.yml/badge.svg)](https://github.com/My-Quran-Tajwid/baca/actions/workflows/deploy_prod.yml)
+
 ![baca-image-cover](https://baca-opengraph.vercel.app/api/default?alt=1)
 
 ## Getting Started
