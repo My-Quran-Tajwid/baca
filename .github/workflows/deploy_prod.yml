@@ -20,7 +20,7 @@ jobs:
       with:
         host: ${{ vars.HOST_IP }}
         username: ${{ vars.HOST_USER }}
-        password: ${{ secrets.HOST_USER_PASSWORD }}
+        key: ${{ secrets.MY_PRIVATE_KEY}}
         script: |
           #!/usr/bin/env bash
           set -e
