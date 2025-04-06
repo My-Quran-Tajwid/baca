@@ -6,20 +6,20 @@ set -e
 
 echo "Deploy triggered by user: $(whoami) on $(date)"
 
-git pull --recurse-submodules || { echo 'git pull failed' ; exit 1; }
-git submodule update --init --recursive || { echo 'git submodule update failed' ; exit 1; }
-composer install || { echo 'composer install failed' ; exit 1; }
+git pull --recurse-submodules 
+git submodule update --init --recursive 
+composer install 
 
-npm install || { echo 'npm install failed' ; exit 1; }
-npm run build || { echo 'npm run build failed' ; exit 1; }
+npm install 
+npm run build 
 
 # Optimization https://laravel.com/docs/11.x/deployment#optimization
-php artisan optimize:clear || { echo 'php artisan optimize:clear failed' ; exit 1; }
-php artisan optimize || { echo 'php artisan optimize failed' ; exit 1; }
+php artisan optimize:clear 
+php artisan optimize 
 
 # Icon caching https://github.com/blade-ui-kit/blade-icons
-php artisan icons:clear || { echo 'php artisan icons:clear failed' ; exit 1; }
-php artisan icons:cache || { echo 'php artisan icons:cache failed' ; exit 1; }
+php artisan icons:clear 
+php artisan icons:cache 
 
 # Uncomment if you wish to run migrate together in this script, I
 # usually run it seperately
