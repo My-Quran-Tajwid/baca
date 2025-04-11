@@ -231,7 +231,8 @@ style tag messed up the syntax highlighting. --}}
         @foreach ($fonts as $font)
             @font-face {
                 font-family: '{{ $font }}';
-                src: url('{{ asset('quran-fonts/fonts/King Fahd Complex/Original/Hafs-QCF4/' . $font . '.woff2') }}') format('woff2');
+                src: url('{{ asset('quran-fonts/fonts/King Fahd Complex/Original/Hafs-QCF4/woff2/' . $font . '.woff2') }}') format('woff2'),
+                    url('{{ asset('quran-fonts/fonts/King Fahd Complex/Original/Hafs-QCF4/' . $font . '.ttf') }}') format('truetype');
             }
 
             @font-face {
