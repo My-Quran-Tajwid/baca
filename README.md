@@ -20,10 +20,10 @@ git submodule update --init
 
 > [!TIP]
 > To update the submodules next time, run this command:
+>
 > ```shell
 > git submodule update --remote
 > ```
-
 
 Open the cloned folder and create an `.env` file
 
@@ -63,3 +63,8 @@ composer run dev
 ```
 
 Open your application at http://127.0.0.1:8000
+
+## Attributions
+
+-   Quranic Universal Library - https://qul.tarteel.ai/
+-   King Fahd Glorious Quran Printing Complex - https://qurancomplex.gov.sa/
