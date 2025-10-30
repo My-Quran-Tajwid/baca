@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Surah ' . $surah->nama_melayu, 'ogImage' => 'https://baca-opengraph.vercel.app/api/surah/' . $surah->no_surah .'?alt=3'])
+@extends('layouts.app', ['title' => 'Surah ' . $surah->nama_melayu, 'ogImage' => 'https://baca-opengraph.vercel.app/api/surah/' . $surah->no_surah . '?alt=3'])
 
 {{-- Style section is moved to the below of this document beacause @foreach inside
 style tag messed up the syntax highlighting. --}}
@@ -21,13 +21,11 @@ style tag messed up the syntax highlighting. --}}
                                 class="bg-rose-100 text-rose-800 dark:bg-rose-800/50 dark:text-rose-200 text-sm font-semibold px-2.5 py-0.5 rounded">
                                 {{ $surah->no_surah }}:{{ $ayat[0]->Ayat }}
                             </span>
-                            <button 
+                            <button
                                 class="tooltip btn-copy-link text-rose-800 dark:text-rose-200 mx-1 px-2 py-0.5 rounded-md opacity-0 group-hover:opacity-100 hover:bg-rose-200/20 dark:hover:bg-rose-700/20 active:bg-rose-200/50 dark:active:bg-rose-700/40 transition-opacity duration-300 ease-in-out"
-                                data-ayat-number="{{ $ayat[0]->Ayat }}"
-                                type="button"
-                                data-tip="Copy link to ayat">
+                                data-ayat-number="{{ $ayat[0]->Ayat }}" type="button" data-tip="Copy link to ayat">
                                 <x-heroicon-o-link class="h-5 w-5" />
-                            </button> 
+                            </button>
                         @endif
                     </div>
 
@@ -41,6 +39,15 @@ style tag messed up the syntax highlighting. --}}
                             </span>
                         @endforeach
                     </p>
+
+                    {{-- Translation Text --}}
+                    @if ($ayat[0]->Ayat != 0 && isset($verse_translations[$ayat[0]->Ayat]))
+                        <div class="mt-4 p-4 rounded-lg">
+                            <p class="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+                                {{ $verse_translations[$ayat[0]->Ayat]->text }}
+                            </p>
+                        </div>
+                    @endif
                 </section>
             @endforeach
         </div>
@@ -142,7 +149,8 @@ style tag messed up the syntax highlighting. --}}
             document.querySelectorAll('.btn-copy-link').forEach(button => {
                 button.addEventListener('click', () => {
                     const ayatNumber = button.getAttribute('data-ayat-number');
-                    const url = `${window.location.origin}${window.location.pathname}#${ayatNumber}`;
+                    const url =
+                        `${window.location.origin}${window.location.pathname}#${ayatNumber}`;
                     navigator.clipboard.writeText(url);
 
                     // Update tooltip message
@@ -172,7 +180,7 @@ style tag messed up the syntax highlighting. --}}
         /* Struggle juga nak buat ni. Ok first, load font yang mana akan digunakan */
 
         @foreach ($fonts as $font)
-        @font-face {
+            @font-face {
                 font-family: '{{ $font }}';
                 src: url('{{ asset('quran-fonts/fonts/King Fahd Complex/Original/Hafs-QCF4/woff2/' . $font . '.woff2') }}') format('woff2'),
                     url('{{ asset('quran-fonts/fonts/King Fahd Complex/Original/Hafs-QCF4/' . $font . '.ttf') }}') format('truetype');

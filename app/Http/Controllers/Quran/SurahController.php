@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Quran;
 use App\Http\Controllers\Controller;
 use App\Models\HafsWord;
 use App\Models\Surah;
+use App\Models\Translation;
+use App\Models\VerseTranslation;
 
 class SurahController extends Controller
 {
@@ -44,9 +46,15 @@ class SurahController extends Controller
             }
         }
 
+        $translations = Translation::query()->first();
+        $verse_translations = VerseTranslation::where('translation_id', $translations->id)
+            ->where('surah_number', $id)
+            ->get()
+            ->keyBy('verse_number');
+
         // TODO: Implement pageContent
         $pageContent = 'MOCKDATA';
 
-        return view('quran.surah.show', compact('surah', 'ayats', 'pageContent', 'fonts'));
+        return view('quran.surah.show', compact('surah', 'ayats', 'pageContent', 'fonts', 'verse_translations'));
     }
 }
