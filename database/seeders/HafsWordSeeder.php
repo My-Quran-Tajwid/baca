@@ -16,7 +16,7 @@ class HafsWordSeeder extends Seeder
     public function run(): void
     {
         // Database source: Quran Publisher App by Mujamma Malik Fahd. Exported to CSV from db.
-        $csv = Reader::createFromPath(resource_path('csv/_Hafs_Word__202501082128.csv'), 'r');
+        $csv = Reader::createFromPath(resource_path('quran-data/_Hafs_Word__202501082128.csv'), 'r');
         $csv->setHeaderOffset(0);
 
         // Total rows: 84109 rows

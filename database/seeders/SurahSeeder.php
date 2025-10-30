@@ -15,12 +15,10 @@ class SurahSeeder extends Seeder
     public function run(): void
     {
         // Database source: Smart Quran DB
-        $csv = Reader::createFromPath(resource_path('csv/surahs-smartquran.csv'), 'r');
+        $csv = Reader::createFromPath(resource_path('quran-data/surahs-smartquran.csv'), 'r');
         $csv->setHeaderOffset(0);
 
         $records = $csv->getRecords();
-        $this->command->info('Number of rows to seed: ' . iterator_count($records));
-
         foreach ($records as $record) {
             DB::table('surahs')->insert([
                 'no_surah' => $record['no_surah'],
