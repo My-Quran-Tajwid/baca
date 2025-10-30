@@ -21,8 +21,7 @@ php artisan optimize
 php artisan icons:clear 
 php artisan icons:cache 
 
-# Uncomment if you wish to run migrate together in this script, I
-# usually run it seperately
-# php artisan migrate
+# since our data is readonly, we can safely refresh it on each deploy
+php artisan migrate:fresh --seed
 
 echo 'Deployment successful.'
