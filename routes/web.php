@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [SurahController::class, 'index'])->name('home');
 Route::get('/surah/{id}', [SurahController::class, 'show'])->name('surah');
+Route::post('/translation/select', [SurahController::class, 'selectTranslation'])->name('translation.select');
+Route::get('/translation/{translationId}/surah/{surahId}', [SurahController::class, 'getTranslations'])->name('translation.get');
 Route::get('/page/{page}', [PageController::class, 'show'])->name('page');
 
 Route::get('/dashboard', function () {

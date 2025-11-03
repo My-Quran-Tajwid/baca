@@ -41,13 +41,16 @@ style tag messed up the syntax highlighting. --}}
                     </p>
 
                     {{-- Translation Text --}}
-                    @if ($ayat[0]->Ayat != 0 && isset($verse_translations[$ayat[0]->Ayat]))
-                        <div class="mt-4 p-4 rounded-lg">
-                            <p class="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
-                                {{ $verse_translations[$ayat[0]->Ayat]->text }}
+                    <div x-show="translations[{{ $ayat[0]->Ayat }}]" x-transition
+                        class="mt-4 p-4 rounded-lg translation-container" data-verse="{{ $ayat[0]->Ayat }}">
+                        @if ($ayat[0]->Ayat != 0)
+                            <p class="text-gray-700 dark:text-gray-300 text-base leading-relaxed translation-text">
+                                @if (isset($selectedTranslationId) && $selectedTranslationId && isset($verse_translations[$ayat[0]->Ayat]))
+                                    {{ $verse_translations[$ayat[0]->Ayat]->text }}
+                                @endif
                             </p>
-                        </div>
-                    @endif
+                        @endif
+                    </div>
                 </section>
             @endforeach
         </div>
@@ -72,6 +75,87 @@ style tag messed up the syntax highlighting. --}}
     </main>
     <script>
         document.addEventListener('alpine:init', () => {
+            Alpine.data('translationSelector', () => ({
+                selectedTranslation: '{{ $selectedTranslationId ?? '' }}',
+                translations: @json(collect($verse_translations)->mapWithKeys(fn($t) => [$t->verse_number => $t->text])),
+                isLoading: false,
+
+                async changeTranslation(translationId) {
+                    try {
+                        // If no translation, clear instantly without loading state
+                        if (!translationId) {
+                            this.translations = {};
+                            this.updateTranslations();
+
+                            // Save to session in background
+                            fetch('{{ route('translation.select') }}', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                },
+                                body: JSON.stringify({
+                                    translation_id: null
+                                })
+                            });
+                            return;
+                        }
+
+                        // Show loading for actual translation fetching
+                        this.isLoading = true;
+
+                        // Save selection to session
+                        const saveResponse = await fetch('{{ route('translation.select') }}', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            body: JSON.stringify({
+                                translation_id: translationId
+                            })
+                        });
+
+                        if (!saveResponse.ok) {
+                            throw new Error('Failed to save translation preference');
+                        }
+
+                        // Fetch new translations
+                        const translationsResponse = await fetch(
+                            `/translation/${translationId}/surah/{{ $surah->no_surah }}`
+                        );
+                        const data = await translationsResponse.json();
+                        this.translations = data.translations;
+
+                        // Update the DOM
+                        this.updateTranslations();
+                    } catch (error) {
+                        console.error('Error changing translation:', error);
+                    } finally {
+                        this.isLoading = false;
+                    }
+                },
+
+                updateTranslations() {
+                    // Update all translation containers
+                    document.querySelectorAll('.translation-container').forEach(container => {
+                        const verseNumber = container.getAttribute('data-verse');
+                        const textElement = container.querySelector('.translation-text');
+
+                        if (textElement) {
+                            const translation = this.translations[verseNumber];
+                            if (translation && translation.text) {
+                                textElement.textContent = translation.text;
+                            } else if (typeof translation === 'string') {
+                                textElement.textContent = translation;
+                            } else {
+                                textElement.textContent = '';
+                            }
+                        }
+                    });
+                }
+            }));
+
             Alpine.data('fontToggle', () => ({
                 isTajwidEnabled: localStorage.getItem('tajwidFont') === 'true',
                 toggleTajwid() {

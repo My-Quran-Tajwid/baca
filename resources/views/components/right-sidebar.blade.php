@@ -1,23 +1,16 @@
-@props(['title' => 'Settings'])
+@props([
+    'title' => 'Settings',
+    'translations' => collect([]),
+    'selectedTranslationId' => null,
+])
 
-<div
-    x-data="{ open: false }" 
-    x-show="open"
-    {{-- Prevent component appear briefly when loading --}}
-    x-cloak 
+<div x-data="{ open: false }" x-show="open" {{-- Prevent component appear briefly when loading --}} x-cloak
     x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
-    x-transition:enter-start="translate-x-full"
-    x-transition:enter-end="translate-x-0"
+    x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
     x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
-    x-transition:leave-start="translate-x-0"
-    x-transition:leave-end="translate-x-full"
-    @keydown.escape.window="open = false"
-    class="fixed inset-0 overflow-hidden z-50"
-    aria-labelledby="slide-over-title"
-    role="dialog"
-    aria-modal="true"
-    @open-sidebar.window="open = true"
->
+    x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full"
+    @keydown.escape.window="open = false" class="fixed inset-0 overflow-hidden z-50" aria-labelledby="slide-over-title"
+    role="dialog" aria-modal="true" @open-sidebar.window="open = true">
     <div class="absolute inset-0 overflow-hidden">
         <!-- Background overlay -->
         {{-- Disable dulu sbb taklawo sbb dia slide in sekali dengan sidebar --}}
@@ -111,7 +104,8 @@
                                 </div>
                                 <template x-if="isTajwidEnabled">
                                     <p class="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                                        Tajwid font is currently in development, some surah will not have the tajwid variant yet.
+                                        Tajwid font is currently in development, some surah will not have the tajwid
+                                        variant yet.
                                     </p>
                                 </template>
                             </div>
@@ -150,6 +144,44 @@
                                             <x-heroicon-o-plus class="w-6 h-6" />
                                         </button>
                                     </div>
+                                </div>
+                            @endif
+
+                            <!-- Translation Section -->
+                            @if (request()->is('surah/*') && $translations->isNotEmpty())
+                                <div x-data="translationSelector">
+                                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Translation</h3>
+                                    <div class="relative">
+                                        <select @change="changeTranslation($event.target.value)"
+                                            x-model="selectedTranslation" :disabled="isLoading"
+                                            class="mt-2 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm disabled:opacity-50 disabled:cursor-not-allowed">
+                                            <option value="">No Translation</option>
+                                            @foreach ($translations as $translation)
+                                                <option value="{{ $translation->id }}"
+                                                    {{ $selectedTranslationId == $translation->id ? 'selected' : '' }}>
+                                                    {{ Str::title($translation->authority) }}
+                                                    ({{ strtoupper($translation->language_code) }})
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <div x-show="isLoading"
+                                            class="absolute right-3 top-1/2 transform -translate-y-1/2 mt-1">
+                                            <svg class="animate-spin h-5 w-5 text-indigo-600"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle class="opacity-25" cx="12" cy="12" r="10"
+                                                    stroke="currentColor" stroke-width="4"></circle>
+                                                <path class="opacity-75" fill="currentColor"
+                                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                                        <span x-show="!isLoading">Select a translation to display alongside the Quranic
+                                            text</span>
+                                        <span x-show="isLoading" class="text-indigo-600 dark:text-indigo-400">Loading
+                                            translation...</span>
+                                    </p>
                                 </div>
                             @endif
                         </div>

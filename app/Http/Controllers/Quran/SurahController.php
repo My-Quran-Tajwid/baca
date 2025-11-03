@@ -46,15 +46,58 @@ class SurahController extends Controller
             }
         }
 
-        $translations = Translation::query()->first();
-        $verse_translations = VerseTranslation::where('translation_id', $translations->id)
-            ->where('surah_number', $id)
-            ->get()
-            ->keyBy('verse_number');
+        // Get all available translations
+        $translations = Translation::all();
+        
+        // Get the selected translation ID from session or use first available
+        $selectedTranslationId = session('selected_translation_id', $translations->first()?->id);
+        
+        // Get verse translations for selected translation
+        $verse_translations = [];
+        if ($selectedTranslationId) {
+            $verse_translations = VerseTranslation::where('translation_id', $selectedTranslationId)
+                ->where('surah_number', $id)
+                ->get()
+                ->keyBy('verse_number');
+        }
 
         // TODO: Implement pageContent
         $pageContent = 'MOCKDATA';
 
-        return view('quran.surah.show', compact('surah', 'ayats', 'pageContent', 'fonts', 'verse_translations'));
+        return view('quran.surah.show', compact('surah', 'ayats', 'pageContent', 'fonts', 'verse_translations', 'translations', 'selectedTranslationId'));
+    }
+
+    /**
+     * Store selected translation in session
+     */
+    public function selectTranslation()
+    {
+        $translationId = request()->input('translation_id');
+        
+        // Store in session (null = "No Translation")
+        session(['selected_translation_id' => $translationId]);
+        
+        return response()->json(['success' => true]);
+    }
+
+    /**
+     * Get translations for a specific surah
+     */
+    public function getTranslations($translationId, $surahId)
+    {
+        if (!$translationId || $translationId === 'null') {
+            return response()->json(['translations' => []]);
+        }
+
+        $translations = VerseTranslation::where('translation_id', $translationId)
+            ->where('surah_number', $surahId)
+            ->get()
+            ->keyBy('verse_number')
+            ->map(fn($translation) => [
+                'verse_number' => $translation->verse_number,
+                'text' => $translation->text
+            ]);
+
+        return response()->json(['translations' => $translations]);
     }
 }
