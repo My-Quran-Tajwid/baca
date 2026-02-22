@@ -6,11 +6,10 @@ set -e
 
 echo "Deploy triggered by user: $(whoami) on $(date)"
 
-git pull --recurse-submodules 
-git submodule update --init --recursive 
+git pull --recurse-submodules
 composer install 
 
-npm install 
+npm ci 
 npm run build 
 
 # Optimization https://laravel.com/docs/11.x/deployment#optimization
@@ -20,8 +19,5 @@ php artisan optimize
 # Icon caching https://github.com/blade-ui-kit/blade-icons
 php artisan icons:clear 
 php artisan icons:cache 
-
-# since our data is readonly, we can safely refresh it on each deploy
-php artisan migrate:fresh --seed
 
 echo 'Deployment successful.'
