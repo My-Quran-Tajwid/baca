@@ -15,8 +15,12 @@ class SurahController extends Controller
      */
     public function index()
     {
-        $surahs = Surah::all();
-        return view('home', compact('surahs'));
+        $surahs = Surah::orderBy('no_surah')->get();
+
+        return view('home', [
+            'surahs' => $surahs,
+            'activeTab' => 'surah',
+        ]);
     }
 
     /**
@@ -41,17 +45,17 @@ class SurahController extends Controller
             $ayats[$word->Ayat][] = $word;
 
             // Collect which font is used
-            if (!in_array($word->FontFamily, $fonts)) {
+            if (! in_array($word->FontFamily, $fonts)) {
                 $fonts[] = $word->FontFamily;
             }
         }
 
         // Get all available translations
         $translations = Translation::all();
-        
+
         // Get the selected translation ID from session or use first available
         $selectedTranslationId = session('selected_translation_id', $translations->first()?->id);
-        
+
         // Get verse translations for selected translation
         $verse_translations = [];
         if ($selectedTranslationId) {
@@ -73,10 +77,10 @@ class SurahController extends Controller
     public function selectTranslation()
     {
         $translationId = request()->input('translation_id');
-        
+
         // Store in session (null = "No Translation")
         session(['selected_translation_id' => $translationId]);
-        
+
         return response()->json(['success' => true]);
     }
 
@@ -85,7 +89,7 @@ class SurahController extends Controller
      */
     public function getTranslations($translationId, $surahId)
     {
-        if (!$translationId || $translationId === 'null') {
+        if (! $translationId || $translationId === 'null') {
             return response()->json(['translations' => []]);
         }
 
@@ -93,9 +97,9 @@ class SurahController extends Controller
             ->where('surah_number', $surahId)
             ->get()
             ->keyBy('verse_number')
-            ->map(fn($translation) => [
+            ->map(fn ($translation) => [
                 'verse_number' => $translation->verse_number,
-                'text' => $translation->text
+                'text' => $translation->text,
             ]);
 
         return response()->json(['translations' => $translations]);
