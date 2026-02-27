@@ -20,7 +20,7 @@
         <meta property="og:description" content="{{ $ogDescription }}" />
     @endisset
     @isset($ogImage)
-    <meta property="og:image" content="{{ $ogImage }}" />
+        <meta property="og:image" content="{{ $ogImage }}" />
     @endisset
 
     <!-- Twitter -->
@@ -28,10 +28,10 @@
     <meta property="twitter:url" content="{{ url()->current() }}" />
     <meta property="twitter:title" content="{{ isset($title) ? $title . '・QuranTajwid' : 'Baca・QuranTajwid' }}" />
     @isset($ogDescription)
-    <meta property="twitter:description" content="{{ $ogDescription }}" />
+        <meta property="twitter:description" content="{{ $ogDescription }}" />
     @endisset
     @isset($ogImage)
-    <meta property="twitter:image" content="{{ $ogImage }}" />    
+        <meta property="twitter:image" content="{{ $ogImage }}" />
     @endisset
 
     <!-- Fonts -->
@@ -51,7 +51,7 @@
     <!-- Styles -->
     @yield('styles')
 
-    <script defer src="https://umami.iqfareez.com/script.js" data-website-id="582466c3-2a09-411c-aba1-511bce82fff2">
+    <script defer src="https://umami.iqfareez.com/script.js" data-website-id="7d2ca6f8-8e1f-4b0a-92d6-ef25b5e600cd">
     </script>
 </head>
 
@@ -72,7 +72,7 @@
         x-transition:leave-end="opacity-0 transform -translate-y-full" class="fixed top-0 left-0 right-0 z-50">
         @include('layouts.navigation')
     </header>
-    
+
     <div class="min-h-screen bg-slate-50 dark:bg-zinc-800 pt-16">
 
         <!-- Page Heading -->
