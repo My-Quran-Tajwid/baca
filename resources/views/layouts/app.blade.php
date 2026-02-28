@@ -51,7 +51,7 @@
     <!-- Styles -->
     @yield('styles')
 
-    <script defer src="https://umami.iqfareez.com/script.js" data-website-id="7d2ca6f8-8e1f-4b0a-92d6-ef25b5e600cd">
+    <script defer src="https://umami.iqfareez.com/analitik.js" data-website-id="7d2ca6f8-8e1f-4b0a-92d6-ef25b5e600cd">
     </script>
 </head>
 
