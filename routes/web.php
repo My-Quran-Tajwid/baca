@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Quran\JuzukController;
 use App\Http\Controllers\Quran\PageController;
 use App\Http\Controllers\Quran\SurahController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [SurahController::class, 'index'])->name('home');
+Route::get('/juzuk', [JuzukController::class, 'index'])->name('juzuk');
 Route::get('/surah/{id}', [SurahController::class, 'show'])->name('surah');
 Route::post('/translation/select', [SurahController::class, 'selectTranslation'])->name('translation.select');
 Route::get('/translation/{translationId}/surah/{surahId}', [SurahController::class, 'getTranslations'])->name('translation.get');
@@ -22,4 +23,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
