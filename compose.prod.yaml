@@ -1,0 +1,6 @@
+services:
+  baca:
+    image: baca
+    build:
+      context: .
+      dockerfile: ./Dockerfile
