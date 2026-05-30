@@ -18,6 +18,7 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     environment:
+      MYSQL_DATABASE: baca
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
 # Uncomment the following to add phpMyAdmin to the stack. It will be available at http://localhost:9001
