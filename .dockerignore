@@ -1,41 +1,49 @@
-# Version Control & IDEs
+# Version control
 .git
 .gitignore
-.idea
-.vscode
-.phpstorm.meta.php
-_ide_helper.php
-
-# Local Environment & Secrets
-.env
-.env.*
-!.env.example
 
 # Dependencies
 vendor/
 node_modules/
-npm-debug.log
-yarn-error.log
 
-# Build Artifacts & Caches
-public/hot
-public/storage
-storage/*.key
+# Environments & secrets
+.env
+.env.*
+!.env.example
+
+# Laravel files
+bootstrap/cache/*.php
+storage/logs/*
 storage/framework/cache/*
 storage/framework/sessions/*
+storage/framework/testing/*
 storage/framework/views/*
-storage/logs/*
 
-# Docker Files
-Dockerfile
-compose.yaml
-compose.prod.yaml
-.dockerignore
+# Keep folder structure
+!storage/framework/cache/.gitignore
+!storage/framework/sessions/.gitignore
+!storage/framework/testing/.gitignore
+!storage/framework/views/.gitignore
+!storage/logs/.gitignore
 
-# Testing
+# Frontend build artifacts
+public/hot
+
+# Tests
 tests/
 phpunit.xml
 .phpunit.result.cache
 
-LICENSE
+# IDE / OS
+.idea
+.vscode
+.DS_Store
+
+# Docker files
+docker-compose*
+compose*.yaml
+
+# Miscs
 README.md
+docs/
+*.log

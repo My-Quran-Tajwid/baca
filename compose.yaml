@@ -4,5 +4,33 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+    ports:
+      - "8080:8080"
+      - "8443:8443"
     env_file:
       - .env
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    restart: unless-stopped
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+# Uncomment the following to add phpMyAdmin to the stack. It will be available at http://localhost:9001
+# pma:
+#   image: phpmyadmin/phpmyadmin
+#   restart: unless-stopped
+#   environment:
+#     PMA_HOST: db
+#     PMA_PORT: 3306
+#   ports:
+#     - '9001:80'
+#   depends_on:
+#     - db
+
+volumes:
+  db_data:

@@ -2,13 +2,12 @@ FROM node:24-alpine AS frontend
 
 WORKDIR /app
 
-COPY package.json package-lock.json* ./
+COPY package.json package-lock.json ./
 
 RUN npm ci
 
-COPY vite.config.js ./
-COPY resources ./resources
-COPY public ./public
+COPY resources/ ./resources/
+COPY postcss.config.js tailwind.config.js vite.config.js ./
 
 # Build frontend assets
 RUN npm run build
