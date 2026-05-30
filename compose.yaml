@@ -7,6 +7,9 @@ services:
     ports:
       - "8080:8080"
       - "8443:8443"
+    environment:
+      - APP_KEY=base64:0vJa2zLe97cCuVXR62fo8LRzxTlNVtJLTlFJTIxJ0CE= # regenerate this key for production use
+      - DB_HOST=db
     env_file:
       - .env
     depends_on:
