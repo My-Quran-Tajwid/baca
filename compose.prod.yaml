@@ -1,6 +1,11 @@
 services:
   baca:
     image: ghcr.io/my-quran-tajwid/baca:main
+    environment:
+      # Laravel automation https://serversideup.net/open-source/docker-php/docs/framework-guides/laravel/automations
+      - AUTORUN_ENABLED=true
+      - AUTORUN_LARAVEL_MIGRATION_SEED=true
+      - AUTORUN_LARAVEL_MIGRATION_MODE=fresh
     env_file:
       - stack.env
     depends_on:
