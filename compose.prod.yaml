@@ -1,9 +1,6 @@
 services:
   baca:
-    image: baca
-    ports:
-      - "8080:8080"
-      - "8443:8443"
+    image: ghcr.io/my-quran-tajwid/baca:main
     env_file:
       - stack.env
     depends_on:
@@ -18,6 +15,7 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     environment:
+      MYSQL_DATABASE: baca
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     networks:
       - default
