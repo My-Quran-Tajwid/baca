@@ -31,6 +31,18 @@ Open the cloned folder and create an `.env` file
 cp .env.example .env
 ```
 
+Then, you can choose either the following ways to run the app, using [docker](#using-docker) or the [conventional way](#conventional-way).
+
+### Using Docker
+
+```shell
+docker compose up
+```
+
+The database setup, data seeder, etc will be handled automatically by the docker container. You can open your application at http://127.0.0.1:8080/
+
+### Conventional way
+
 Setup project:
 
 ```shell
@@ -66,5 +78,5 @@ Open your application at http://127.0.0.1:8000
 
 ## Attributions
 
--   Quranic Universal Library - https://qul.tarteel.ai/
--   King Fahd Glorious Quran Printing Complex - https://qurancomplex.gov.sa/
+- Quranic Universal Library - https://qul.tarteel.ai/
+- King Fahd Glorious Quran Printing Complex - https://qurancomplex.gov.sa/

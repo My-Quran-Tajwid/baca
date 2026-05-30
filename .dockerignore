@@ -1,0 +1,49 @@
+# Version control
+.git
+.gitignore
+
+# Dependencies
+vendor/
+node_modules/
+
+# Environments & secrets
+.env
+.env.*
+!.env.example
+
+# Laravel files
+bootstrap/cache/*.php
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/testing/*
+storage/framework/views/*
+
+# Keep folder structure
+!storage/framework/cache/.gitignore
+!storage/framework/sessions/.gitignore
+!storage/framework/testing/.gitignore
+!storage/framework/views/.gitignore
+!storage/logs/.gitignore
+
+# Frontend build artifacts
+public/hot
+
+# Tests
+tests/
+phpunit.xml
+.phpunit.result.cache
+
+# IDE / OS
+.idea
+.vscode
+.DS_Store
+
+# Docker files
+docker-compose*
+compose*.yaml
+
+# Miscs
+README.md
+docs/
+*.log
