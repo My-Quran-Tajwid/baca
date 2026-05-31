@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-if (config('app.debug')) {
+if (env('APP_DEBUG', false)) {
     // Use to debug if the proxy setup.
     Route::get('/_debug/proxy_headers', function (Request $request) {
         return [

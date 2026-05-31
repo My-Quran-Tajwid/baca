@@ -12,8 +12,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        if (config('proxy.enabled')) {
-            $middleware->trustProxies(config('proxy.trusted_proxies'));
+        // If app is running behind a reverse proxy, we need to trust the proxy to get correct IP/scheme.
+        // So that the CSS and other files can be served correctly.
+        if (env('ENABLE_TRUSTED_PROXY_CONFIG', false)) {
+            $middleware->trustProxies(env('TRUSTED_PROXIES', '*'));
         }
     })
     ->withExceptions(function (Exceptions $exceptions) {
