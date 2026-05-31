@@ -2,6 +2,11 @@ services:
   baca:
     image: ghcr.io/my-quran-tajwid/baca:main
     environment:
+      # Enable opcache in production
+      - PHP_OPCACHE_ENABLE=1
+      # Reverse proxy settings
+      - ENABLE_TRUSTED_PROXY_CONFIG=true
+      - TRUSTED_PROXIES="*"
       # Laravel automation https://serversideup.net/open-source/docker-php/docs/framework-guides/laravel/automations
       - AUTORUN_ENABLED=true
       - AUTORUN_LARAVEL_MIGRATION_SEED=true
