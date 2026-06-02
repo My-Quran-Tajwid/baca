@@ -1,4 +1,4 @@
-# Note: This workflow action is disabled, but kept here for reference. I am now using GitHub Actions to automatically build and push the Docker image to GitHub Container Registry, and then pull the latest image on the server and restart the container to deploy the latest changes. You can see the workflow file [here](../.github/workflows/docker_build_push.yml) and the deploy script [`deploy.sh`](../scripts/deploy.sh).
+# Note: This workflow action is disabled, but kept here for reference.
 
 # The app is hosted on VPS server. So basically we SSH into it and run the deploy script (git pull etc.)
 name: Deploy Production
