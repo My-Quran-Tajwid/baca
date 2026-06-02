@@ -1,4 +1,5 @@
 #!/bin/sh
+# Update: I no longer use this script to deploy the app as I moved to docker based deployment. But I am keeping this script here for reference.
 # This will run common commands to deploy a latest commit from remote
 # This script is intended for subsequent deploy of the applications. For 
 # first deploy, consult this project's README.md.
