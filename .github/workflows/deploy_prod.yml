@@ -1,4 +1,6 @@
-# The app is hosted ion VPS server. So basically we SSH into it and run the deploy script (git pull etc.)
+# Note: This workflow action is disabled, but kept here for reference.
+
+# The app is hosted on VPS server. So basically we SSH into it and run the deploy script (git pull etc.)
 name: Deploy Production
 
 on:
