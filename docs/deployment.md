@@ -120,3 +120,5 @@ This app was deployed using [CloudPanel](https://www.cloudpanel.io/docs/v2/getti
     ```
 7. Setup the DNS to point to that server. Create new Let's Encrypt SSL certificate for the site.
 8. The site should be up and running.
+
+For updating the app, you can see the github actions workflow file [here](../.github/workflows/deploy_prod.yml) and the update script [`deploy.sh`](../scripts/deploy.sh). Those files are no longer used by me, but I am keeping them here for reference.
