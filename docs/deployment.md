@@ -59,6 +59,10 @@ Create a new stack for the app. Choose method **Repository**. Fill in the fields
 
 (Or you can paste the content of [`compose.prod.yaml`](../compose.prod.yaml) into the Web Editor.)
 
+
+<img width="1516" height="912" alt="Screenshot 2026-06-02 at 9 28 20 AM" src="https://github.com/user-attachments/assets/c9f86668-1b49-4798-8420-82edaef63a72" />
+
+
 Next, in the Environment variables section. Change to Advanced mode, copy the content of [`.env.example`](../.env.example) file and paste it into the text area. Update the values accordingly. Minimum changes required are:
 
 ```dotenv
@@ -78,6 +82,9 @@ DB_HOST=db # database service name defined in the compose file
 > For production deployments, set the environment variable `APP_ENV` to `production` and `APP_DEBUG` to `false`.
 
 Click on Deploy the stack. Wait for the deployment to finish. You should see the new stack running.
+
+<img width="1489" height="296" alt="Screenshot 2026-06-02 at 9 32 16 AM" src="https://github.com/user-attachments/assets/f3edb27a-4755-4457-965d-8b9859d2801d" />
+
 
 Now, we get back to the Caddyfile so that we can access the app publicly. Open the Caddyfile and add the following content (for example):
 
