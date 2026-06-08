@@ -24,16 +24,16 @@ services:
       MYSQL_DATABASE: baca
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
-pma:
-  image: phpmyadmin/phpmyadmin
-  restart: unless-stopped
-  environment:
-    PMA_HOST: db
-    PMA_PORT: 3306
-  ports:
-    - '9001:80'
-  depends_on:
-    - db
+  pma:
+    image: phpmyadmin/phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - '9001:80'
+    depends_on:
+      - db
 
 volumes:
   db_data:
