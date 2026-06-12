@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('juzuks', function (Blueprint $table) {
-            $table->integer('juz_number');
+            $table->integer('juz_number')->primary();
             $table->integer('verses_count');
             $table->text('first_verse_key');
             $table->text('last_verse_key');
