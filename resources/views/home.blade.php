@@ -42,7 +42,7 @@
                 @foreach ($surahs as $surah)
                     <a href="/surah/{{ $surah->no_surah }}"
                         class="group relative flex items-start p-6 bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-rose-500 transition-colors duration-200">
-                        <div class="flex-1">
+                        <div class="flex-1 min-w-0">
                             <div class="flex items-center gap-4">
                                 <!-- Surah Number -->
                                 <x-surah-ornament
@@ -50,7 +50,7 @@
                                     {{ $surah->no_surah }}
                                 </x-surah-ornament>
 
-                                <div class="flex-1">
+                                <div class="flex-1 min-w-0">
                                     <div class="flex items-center justify-between">
                                         <!-- Surah Name -->
                                         <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
@@ -83,42 +83,57 @@
             <!-- Juzuk Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 @foreach ($juzuks as $juzuk)
-                    <div
-                        class="group relative flex items-start p-6 bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-orange-500 transition-colors duration-200 cursor-pointer">
-                        <div class="flex-1">
-                            <div class="flex items-center gap-4">
-                                <!-- Juzuk Number -->
-                                <x-surah-ornament
-                                    class="flex items-center justify-center w-10 h-10 fill-orange-50 dark:fill-orange-900 text-orange-600 dark:text-white font-semibold">
-                                    {{ $juzuk->no_juzuk }}
-                                </x-surah-ornament>
-
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between">
-                                        <!-- Juzuk Name -->
-                                        <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                                            Juzuk {{ $juzuk->no_juzuk }}
-                                        </h3>
-                                        <!-- Arabic Juzuk Name -->
-                                        <span class="text-5xl nama-surah-arab text-gray-800 dark:text-gray-200"
-                                            dir="rtl">
-                                            J{{ $juzuk->no_juzuk }}
-                                        </span>
+                    <a href="/surah/{{ $juzuk->firstSurah->no_surah }}#{{ $juzuk->firstVerse }}">
+                        <div
+                            class="group relative flex items-start p-6 bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-orange-500 transition-colors duration-200 cursor-pointer">
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-4">
+                                    <!-- Juzuk Number -->
+                                    <x-surah-ornament
+                                        class="flex items-center justify-center w-10 h-10 fill-orange-50 dark:fill-orange-900 text-orange-600 dark:text-white font-semibold">
+                                        {{ $juzuk->juz_number }}
+                                    </x-surah-ornament>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center justify-between">
+                                            <!-- Juzuk Title -->
+                                            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                                                Juzuk {{ $juzuk->juz_number }}
+                                            </h3>
+                                            <!-- Arabic Juzuk Title -->
+                                            <span class="text-5xl nama-surah-arab text-gray-800 dark:text-gray-200"
+                                                dir="rtl">
+                                                J{{ $juzuk->juz_number }}
+                                            </span>
+                                        </div>
+                                        <!-- First Surah Info -->
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                                            Surah {{ $juzuk->firstSurah->nama_melayu }} :
+                                            {{ $juzuk->firstVerse }}
+                                        </p>
                                     </div>
-
-                                    <!-- First Surah Info -->
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                                        Bermula dari Surah {{ $juzuk->first_surah_name }}
-                                    </p>
+                                </div>
+                                <!-- Ayat preview for first surah -->
+                                @php
+                                    // Build ayat preview string
+                                    $ayat = \App\Models\HafsWord::query()
+                                        ->where([
+                                            'Type' => 1, // type 1 untuk ayat biasa,
+                                            'Surah' => $juzuk->firstSurah->no_surah,
+                                            'Ayat' => $juzuk->firstVerse,
+                                        ])
+                                        ->orderBy('WordOrder')
+                                        ->select('WordText')
+                                        ->get()
+                                        ->pluck('WordText')
+                                        ->implode(' ');
+                                @endphp
+                                <div class="mt-4 w-full text-base text-gray-500 overflow-hidden whitespace-nowrap text-ellipsis"
+                                    dir="rtl">
+                                    {{ $ayat }} ({{ $juzuk->firstVerse }})
                                 </div>
                             </div>
-
-                            <!-- Surah Count -->
-                            <div class="mt-4 text-sm text-gray-500">
-                                {{ $juzuk->bilangan_surah }} surah
-                            </div>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         @else
