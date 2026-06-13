@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Translation;
-use App\Models\VerseTranslation;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -38,13 +37,14 @@ class VerseTranslationSeeder extends Seeder
     private function seedTranslation(array $data): void
     {
         // Generate slug from lang + authority
-        $slug = Str::slug($data['lang'] . '-' . $data['authority']);
+        $slug = Str::slug($data['lang'].'-'.$data['authority']);
 
         // Check if translation already exists
         $translation = Translation::where('slug', $slug)->first();
 
         if ($translation) {
             $this->command->info("Translation '{$slug}' already exists. Skipping...");
+
             return;
         }
 
@@ -59,16 +59,18 @@ class VerseTranslationSeeder extends Seeder
         $this->command->info("  Seeding translation: {$slug}");
 
         $jsonPath = resource_path($data['json_path']);
-        
-        if (!file_exists($jsonPath)) {
+
+        if (! file_exists($jsonPath)) {
             $this->command->error("JSON file not found: {$jsonPath}");
+
             return;
         }
 
         $verses = json_decode(file_get_contents($jsonPath), true);
 
-        if (!$verses) {
+        if (! $verses) {
             $this->command->error("Failed to parse JSON file: {$jsonPath}");
+
             return;
         }
 
@@ -76,7 +78,7 @@ class VerseTranslationSeeder extends Seeder
         $verseTranslations = [];
         foreach ($verses as $key => $value) {
             [$surahNumber, $verseNumber] = explode(':', $key);
-            
+
             $verseTranslations[] = [
                 'translation_id' => $translation->id,
                 'surah_number' => (int) $surahNumber,
@@ -87,12 +89,12 @@ class VerseTranslationSeeder extends Seeder
 
         $chunks = array_chunk($verseTranslations, 500);
         $totalChunks = count($chunks);
-        
+
         foreach ($chunks as $index => $chunk) {
             DB::table('verse_translations')->insert($chunk);
-            $this->command->info("  Inserted chunk " . ($index + 1) . " of {$totalChunks}");
+            $this->command->info('  Inserted chunk '.($index + 1)." of {$totalChunks}");
         }
 
-        $this->command->info("  Successfully seeded {$slug} with " . count($verseTranslations) . " verses");
+        $this->command->info("  Successfully seeded {$slug} with ".count($verseTranslations).' verses');
     }
 }

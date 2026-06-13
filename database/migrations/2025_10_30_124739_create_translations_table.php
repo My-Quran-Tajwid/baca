@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('authority', 100); // 'Abdel Haleem', 'Abdullah Basmeih'
             $table->string('slug', 50)->unique()->comment('e.g., en-haleem, ms-basmeih');
             $table->text('description')->nullable();
-            
+
             $table->index('language_code');
         });
     }

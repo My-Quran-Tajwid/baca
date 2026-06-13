@@ -1,33 +1,33 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "my-quran-tajwid/baca",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Application to read the Quran with Tajwid rules.",
     "keywords": [
+        "quran",
         "laravel",
         "framework"
     ],
-    "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "blade-ui-kit/blade-heroicons": "^2.5",
         "blade-ui-kit/blade-icons": "^1.7",
-        "laravel/framework": "^12.53",
+        "laravel/framework": "^13.8",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.9",
+        "laravel/tinker": "^3.0",
         "league/csv": "9.18.0",
         "saade/blade-iconsax": "^1.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
         "laravel/breeze": "^2.3",
-        "laravel/pail": "^1.1",
-        "laravel/pint": "^1.13",
+        "laravel/pail": "^1.2.5",
+        "laravel/pint": "^1.27",
         "laravel/sail": "^1.26",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.1",
-        "pestphp/pest": "^3.8",
-        "pestphp/pest-plugin-laravel": "^3.0"
+        "nunomaduro/collision": "^8.6",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0"
     },
     "autoload": {
         "psr-4": {
@@ -42,6 +42,22 @@
         }
     },
     "scripts": {
+        "setup": [
+            "composer install",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan key:generate",
+            "@php artisan migrate --force",
+            "npm install --ignore-scripts",
+            "npm run build"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\" --names='server,queue,vite'"
+        ],
+        "test": [
+            "@php artisan config:clear --ansi @no_additional_args",
+            "@php artisan test"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -57,9 +73,8 @@
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
         ],
-        "dev": [
-            "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\" --names='server,queue,vite'"
+        "pre-package-uninstall": [
+            "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
         ]
     },
     "extra": {

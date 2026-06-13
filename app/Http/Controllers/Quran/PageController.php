@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Quran;
 
 use App\Http\Controllers\Controller;
 use App\Models\HafsWord;
-use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -34,7 +33,7 @@ class PageController extends Controller
         $fonts = [];
         foreach ($words as $word) {
             // Collect which font is used
-            if (!in_array($word->FontFamily, $fonts)) {
+            if (! in_array($word->FontFamily, $fonts)) {
                 $fonts[] = $word->FontFamily;
             }
         }

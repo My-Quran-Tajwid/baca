@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('surah_number');
             $table->unsignedSmallInteger('verse_number');
             $table->text('text');
-            
+
             $table->unique(['translation_id', 'surah_number', 'verse_number'], 'verse_translation_unique');
             $table->index(['surah_number', 'verse_number']);
             $table->index('translation_id');

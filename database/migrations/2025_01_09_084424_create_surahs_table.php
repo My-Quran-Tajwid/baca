@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('nama_arab');
             $table->string('maksud_english');
             $table->string('maksud_melayu');
-            $table->char('tempat_diturunkan', 1)->comment("M - Mekah, D - Madinah");
+            $table->char('tempat_diturunkan', 1)->comment('M - Mekah, D - Madinah');
             // $table->timestamps(); // We don't need timestamp, this is just readonly data
         });
     }

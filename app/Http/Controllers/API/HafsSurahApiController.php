@@ -56,18 +56,18 @@ class HafsSurahApiController extends Controller
             $fontCode = $hafsWord->FontCode;
             $fontFamily = $hafsWord->FontFamily;
 
-            if (!isset($response[$ayat])) {
+            if (! isset($response[$ayat])) {
                 $response[$ayat] = [
                     'surah' => $surah,
                     'ayat' => $ayat,
                     'page' => $page,
-                    'words' => []
+                    'words' => [],
                 ];
             }
 
             $response[$ayat]['words'][] = [
                 'fontCode' => $fontCode,
-                'fontFamily' => $fontFamily
+                'fontFamily' => $fontFamily,
             ];
         }
 
@@ -79,6 +79,7 @@ class HafsSurahApiController extends Controller
                 } elseif ($b['fontFamily'] == 'QCF4_QBSML') {
                     return 1;
                 }
+
                 return 0;
             });
         }
