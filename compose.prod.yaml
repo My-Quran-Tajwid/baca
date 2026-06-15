@@ -1,6 +1,7 @@
 services:
   baca:
     image: ghcr.io/my-quran-tajwid/baca:main
+    restart: unless-stopped
     environment:
       # Enable opcache in production
       - PHP_OPCACHE_ENABLE=1
