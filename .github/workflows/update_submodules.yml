@@ -3,6 +3,9 @@ name: Update Git Submodules
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update-submodules:
     runs-on: ubuntu-latest
