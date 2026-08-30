@@ -3,7 +3,7 @@ name: Automatic Deployments
 
 on:
   workflow_run:
-    workflows: ["Publish Docker image"]
+    workflows: ["Docker Build and Push"]
     types: [completed]
     branches: [main]
 
