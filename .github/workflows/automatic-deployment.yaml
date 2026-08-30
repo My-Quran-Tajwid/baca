@@ -1,0 +1,48 @@
+# Trigger deployment after 'main' image has been published
+name: Automatic Deployments
+
+on:
+  workflow_run:
+    workflows: ["Publish Docker image"]
+    types: [completed]
+    branches: [main]
+
+concurrency: deploy-targets
+
+jobs:
+  deploy:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # This is required for the Tailscale action to request a JWT from GitHub
+
+    steps:
+      - name: Setup Tailscale
+        uses: tailscale/github-action@v4
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          audience: ${{ secrets.TS_AUDIENCE }}
+          tags: tag:ci
+
+      - name: Ping target
+        run: tailscale ping ${{ vars.TARGET_HOST}}
+
+      - name: Deploy Wiwit app
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ vars.TARGET_HOST}}
+          username: ${{ vars.TARGET_USERNAME}}
+          password: dummy # https://github.com/appleboy/ssh-action/issues/344#issuecomment-2906895821
+          script: |
+            set -e
+
+            echo "Deploying Baca Production"
+            cd /opt/stacks/baca
+            docker compose pull
+            docker compose up -d
+
+      - name: Write summary
+        run: |
+          echo '### Deployment succeeded' >> "$GITHUB_STEP_SUMMARY"
+          echo 'App deployed 🚀' >> "$GITHUB_STEP_SUMMARY"
