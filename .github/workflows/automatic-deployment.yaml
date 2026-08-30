@@ -28,7 +28,7 @@ jobs:
       - name: Ping target
         run: tailscale ping ${{ vars.TARGET_HOST}}
 
-      - name: Deploy Wiwit app
+      - name: Deploy Baca app
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ vars.TARGET_HOST}}
